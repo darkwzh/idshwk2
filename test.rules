@@ -1,2 +1,2 @@
-alert tcp $EXTERNAL_NET any -> any 3399 (content:"i";nocase;pcre:"/(login|Initial)/";flowbits:set,login;flowbits:noalert;sid=1000001;msg:"bot founded")
+alert tcp $EXTERNAL_NET any -> any 3399 (content:"i";nocase;pcre:"/(login|Initial)/";flowbits:set,login;flowbits:noalert;sid:1000001;msg:"bot founded")
 alert tcp $EXTERNAL_NET any -> any 3399 (content:":";pcre:"/(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\:([0-9]|[1-9]\d{1,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])/";flowbits:isset,login;msg:"bot founded";sid:1000001;)
